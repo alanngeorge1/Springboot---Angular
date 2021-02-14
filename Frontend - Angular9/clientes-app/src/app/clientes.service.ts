@@ -9,8 +9,7 @@ import {Observable} from 'rxjs';
 export class ClientesService {
 
   constructor(private http: HttpClient) { 
-   
-  }
+}
     
   salvar(cliente : Cliente) : Observable <Cliente>{
     return this.http.post<Cliente> ('http://localhost:9999/api/clientes', cliente);
@@ -18,13 +17,10 @@ export class ClientesService {
     
   
   
-  getCliente(): Cliente{
-      let cliente : Cliente = new Cliente;
-      cliente.nome ='Alan Geoorge';
-      cliente.cpf = '05558884442';
-      return cliente;
-      
-    }
-
-
+ getClientes() : Observable <Cliente[]> {
+      return this.http.get<Cliente[]>('http://localhost:9999/api/clientes');
   }
+
+
+
+}

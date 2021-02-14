@@ -12,7 +12,7 @@
                     Cliente Salvo com sucesso! 
                 </div>
                 <div class="alert alert-danger" role="alert" *ngFor="let erro of errors">
-                    {{ erro}}    
+                    {{ erro }}    
                 </div>
             </div>
         </div>
@@ -52,10 +52,13 @@
         </div>
 
         <div class="row>">
-           <div class="col-md2">
+           <div class="col-md3">
                <button type="submit"   class="btn btn-success">
-                <i class="fa fa-save"> </i> Salvar</button>
-           </div>
+                <i class="fa fa-save"> </i> Salvar
+            </button>
+                <button type="button"   class="btn btn-danger ml-1" (click)="voltarParaLista()">
+                 <i class="fa fa-arrow-alt-circle-left"> </i> Voltar</button>
+            </div>
         </div>
     
     </form>
