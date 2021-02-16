@@ -1,6 +1,7 @@
 package com.alanngeorge1.AngularJava.model.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,9 +14,9 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class Cliente {
     @Id

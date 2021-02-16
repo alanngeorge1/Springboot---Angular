@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import{ Router } from '@angular/router'
+import{ Router, ActivatedRoute, Params } from '@angular/router'
 
 
 import { Cliente } from '../cliente'
 import{ ClientesService} from '../../clientes.service'
-import { from } from 'rxjs';
+import { from, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-clientes-form',
@@ -16,26 +16,53 @@ export class ClientesFormComponent implements OnInit {
   cliente: Cliente;
   success: boolean = false;
   errors: String[];
+  id: number;
   
   constructor(
     private service: ClientesService, 
-    private router: Router) { 
+    private router: Router, 
+    private activatedRoute: ActivatedRoute 
+    ) { 
       this.cliente = new Cliente();
-
   }
 
-  ngOnInit(): void {}
-
-
-
+  ngOnInit(): void {
+    let params : Observable<Params> = this.activatedRoute.params
+    params.subscribe(urlParams =>{
+        this.id = urlParams ['id'];
+        if(this.id){
+          this.service
+          .getClienteById(this.id)
+          .subscribe( 
+            response => this.cliente = response ,
+            errorResponse => this.cliente = new Cliente()
+          )
+        }      
+  });
+    
+    }
+  
   voltarParaLista(){
     this.router.navigate(['/clientes-lista'])
   }
 
   onSubmit(){
-  this.service
-    .salvar(this.cliente) 
-    .subscribe(response =>{
+
+    if(this.id){
+      this.service
+        .atualizar(this.cliente)
+        .subscribe( response => {
+          this.success = true;
+           this.errors = null;  
+        }, errpResponse => {
+            this.errors = ['Erro ao Atualizar o Cliente.']
+        })
+
+      
+    }else{
+    this.service
+      .salvar(this.cliente) 
+      .subscribe(response =>{
         this.success = true;
         this.errors = null;
         this.cliente = response;
@@ -43,6 +70,10 @@ export class ClientesFormComponent implements OnInit {
         this.success = false;
         this.errors = errorResponse.error.errors;
       })
+
+    }
+
+  
   }
 
 
