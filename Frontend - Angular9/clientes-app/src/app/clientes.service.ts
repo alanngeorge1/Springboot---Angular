@@ -29,4 +29,8 @@ getClienteById(id: number) : Observable<Cliente>{
   return  this.http.get<any>(`http://localhost:9999/api/clientes/${id}`);
 }
 
+deletar(cliente: Cliente) : Observable<any> {
+  return this.http.delete<any>(`http://localhost:9999/api/clientes/${cliente.id}`);
+}
+
 }
