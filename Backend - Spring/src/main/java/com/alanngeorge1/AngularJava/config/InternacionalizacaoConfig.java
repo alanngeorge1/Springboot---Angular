@@ -12,7 +12,7 @@ import java.util.Locale;
 public class InternacionalizacaoConfig {
 
     @Bean
-    public MessageSource messageSource(){
+    public MessageSource  messageSource(){
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
         messageSource.setBasename("classpath:messages");
         messageSource.setDefaultEncoding("ISO-8859-1");

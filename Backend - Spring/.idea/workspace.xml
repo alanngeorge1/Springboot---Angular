@@ -54,6 +54,19 @@
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.AngularJavaApplication (1)">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AngularJavaApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="Backend - Spring" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.alanngeorge1.AngularJava.AngularJavaApplication" />
@@ -106,7 +119,8 @@
       <workItem from="1614121469784" duration="2527000" />
       <workItem from="1614215292121" duration="10014000" />
       <workItem from="1614395417852" duration="4826000" />
-      <workItem from="1614641165003" duration="3151000" />
+      <workItem from="1614641165003" duration="8052000" />
+      <workItem from="1614744022816" duration="15673000" />
     </task>
     <servers />
   </component>
