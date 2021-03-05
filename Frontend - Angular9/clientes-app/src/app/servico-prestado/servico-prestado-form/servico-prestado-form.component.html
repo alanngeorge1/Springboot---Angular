@@ -1,28 +1,29 @@
-<h1 class="mt-4"> Serviços Prestados</h1>
+<h1 class="mt-4">Serviço Prestado</h1>
 <ol class="breadcrumb mb-4">
-    <li class="breadcrumb-bitem active">Novo</li>
+    <li class="breadcrum-bitem active">Novo</li>
 </ol>
-
 <div class="container">
-    <form #form="ngForm" (submit)="onSubmit()">
+    <form #form="ngForm" (submit)="onSubmit()" >
+
         <div class="row">
             <div class="col-md-12">
                 <div class="alert alert-success" role="alert" *ngIf="success == true">
-                    Serviço Salvo com sucesso! 
+                    Serviço Prestado salvo com sucesso!    
                 </div>
                 <div class="alert alert-danger" role="alert" *ngFor="let erro of errors">
-                    {{ erro }}    
+                    {{ erro  }}    
                 </div>
             </div>
         </div>
+        
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
-                    <label >Cliente:</label>
-                    <select class="form-control"
-                            [ngModelOptions]="{standalone:true}"   
+                    <label>Cliente: </label>
+                    <select class="form-control" 
+                            [ngModelOptions]="{standalone: true}"
                             [(ngModel)]="servico.idCliente">
-                        <option value=""> Selecione</option>
+                        <option value="">Selecione...</option>
                         <option *ngFor="let cliente of clientes" 
                                 [ngValue]="cliente.id">
                             {{ cliente.nome }}
@@ -31,7 +32,7 @@
                 </div>
             </div>
         </div>
-            
+
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group">
@@ -52,7 +53,6 @@
                             name="data" id="inputData">
                 </div>
             </div>
-
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Preço:</label>
@@ -62,14 +62,20 @@
                 </div>
             </div>
         </div>
-       
+
         <div class="row">
             <div class="col-md-3">
                 <button type="submit" class="btn btn-success">
-                    <i class=" fa fa-save"></i>
+                    <i class="fa fa-save"></i>
                     Salvar
+                </button>
+
+                <button type="button" routerLink="/servico-prestado-listagem" 
+                        class="btn btn-danger ml-1" >
+                    <i class="fa fa-arrow-alt-circle-left" ></i> Voltar
                 </button>
             </div>
         </div>
+
     </form>
 </div>
