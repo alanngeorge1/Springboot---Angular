@@ -1,4 +1,4 @@
-package com.alanngeorge1.AngularJava.rest.exeception;
+package com.alanngeorge1.AngularJava.rest;
 
 import com.alanngeorge1.AngularJava.model.entity.Cliente;
 import com.alanngeorge1.AngularJava.model.entity.ServicoPrestado;
